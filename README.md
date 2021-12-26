@@ -1,5 +1,7 @@
 # nav-chiven
-
+一个导航网站。
+刚开始学习开发，这是用来练习的。
+vue3 + NaiveUI。
 ## Project setup
 ```
 pnpm install

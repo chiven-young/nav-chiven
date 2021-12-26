@@ -23,7 +23,8 @@ import {
     NTabs,
     NTabPane,
     NCalendar,
-    NResult
+    NResult,
+    NDrawer
 } from 'naive-ui'
 
 import router from './router'
@@ -41,6 +42,7 @@ const naive = create({
         NCard,
         NCollapse,
         NCollapseItem,
+        NDrawer,
         NGrid,
         NGridItem,
         NInput,

@@ -1,17 +1,23 @@
 <template>
   <div class="home">
-    <NavList />
+    <WebNav />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import NavList from '@/components/NavList.vue'
+import { defineComponent } from 'vue'
+import WebNav from './web-nav/index.vue'
 
-export default {
+export default defineComponent({
   name: 'Home',
   components: {
-    NavList
+    WebNav,
+  },
+  setup () {
+    
+    return {
+      
+    }
   }
-}
+})
 </script>

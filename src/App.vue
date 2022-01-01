@@ -1,29 +1,19 @@
 <template>
 <n-config-provider :theme="theme" class="app-body">
   <n-layout-header :inverted="inverted" bordered>
-    <n-switch v-model:value="collapsed" />
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
+    <a target="_blank" href="https://www.chiven.net">人寻的网站</a>
+    <n-input size="small" round placeholder="搜索" style="max-width: 200px;display:inline-block">
+      <template #suffix>
+        <n-icon>
+          <Search24Regular />
+        </n-icon>
+      </template>
+    </n-input>
     <n-button @click="activate('right')">菜单</n-button>
   </n-layout-header>
-  <n-layout has-sider>
-    <n-layout-sider
-      collapse-mode="transform"
-      :collapsed-width="0"
-      :width="268"
-      :show-collapsed-content="false"
-      show-trigger="arrow-circle"
-      bordered
-      :collapsed="!collapsed"
-      @collapse="collapsed = false"
-      @expand="collapsed = true"
-      content-style="padding: 16px;"
-      class="index-siderbar"
-    ></n-layout-sider>
-    <n-layout-content content-style="width: 100%">
-      <router-view/>
-    </n-layout-content>
-  </n-layout>
+  <router-view/>
   <n-drawer v-model:show="active" :width="502" :placement="placement">
     <n-drawer-content title="斯通纳">
       <n-button @click="theme = darkTheme">深色</n-button>
@@ -36,11 +26,14 @@
 <script>
 import { defineComponent, ref } from 'vue'
 import { darkTheme } from 'naive-ui'
+import {
+  Search24Regular as Search24Regular
+} from '@vicons/fluent'
 
 export default defineComponent({
   name: 'App',
   components: {
-    // Home,
+    Search24Regular
   },
   setup () {
     const active = ref(false)
@@ -50,7 +43,6 @@ export default defineComponent({
       placement.value = place
     }
     return {
-      collapsed: ref(true),
       active,
       placement,
       activate,
@@ -75,18 +67,17 @@ export default defineComponent({
 }
 .app-body > .n-layout {
   position: absolute;
-  top: 44px;
   width: 100%;
   height: auto;
+  top: 44px;
   left: 0;
   bottom: 0;
 }
-.n-layout-header {
+::v-deep .n-layout-header {
   height: 44px;
   display: flex;
   display: -webkit-flex;
   justify-content: space-between;
   align-items: center;
-  height: 44px;
 }
 </style>

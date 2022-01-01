@@ -187,7 +187,7 @@ a {
   color: #42b983;
 }
 .project-card {
-  height: 240px;
+  height: 140px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -223,7 +223,7 @@ a {
   padding: 8px;
 }
 .project-card-title {
-  font-size: 16px;
+  font-size: 14px;
 }
 .project-card-desc {
   font-size: 12px;

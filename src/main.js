@@ -5,6 +5,7 @@ import {
     // create naive ui
     create,
     // component
+    NAnchor,
     NButton,
     NCard,
     NCollapse,
@@ -24,13 +25,16 @@ import {
     NTabPane,
     NCalendar,
     NResult,
-    NDrawer
+    NDrawer,
+    NAnchorLink
 } from 'naive-ui'
 
 import router from './router'
 
 const naive = create({
     components: [
+        NAnchor,
+        NAnchorLink,
         NButton,
         NLayout,
         NLayoutHeader,

@@ -5,12 +5,20 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
-  },
-  {
-    path: '/nav',
-    name: 'Nav',
-    component: () => import(/* webpackChunkName: "nav" */ '../views/web-nav/index.vue')
+    component: Home,
+    redirect: '/start',
+    children: [
+      {
+        path: '/start',
+        name: 'Start',
+        component: () => import(/* webpackChunkName: "start" */ '../views/web-nav/index.vue'),
+      },
+      {
+        path: '/nav',
+        name: 'Nav',
+        component: () => import(/* webpackChunkName: "nav" */ '../views/web-nav/web-nav.vue')
+      },
+    ]
   },
   {
     path: '/about',

@@ -20,6 +20,8 @@
         :expand-icon="expandIcon"
         accordion
       />
+      <router-link to="/start">开始</router-link>
+      <router-link to="/nav">网址导航</router-link>
       <n-anchor
         affix
         listen-to=".document-scroll-container"
@@ -28,26 +30,26 @@
         style="z-index: 1;"
         :bound="24"
       >
-        <n-anchor-link title="演示" href="#演示">
-          <n-anchor-link title="top" href="#nav-start" />
-          <n-anchor-link title="设计" href="#nav-design" />
-          <n-anchor-link title="开发" href="#nav-dev" />
-          <n-anchor-link title="产品" href="#nav-product" />
-        </n-anchor-link>
+      <n-anchor-link title="网址导航" href="#navstar">
+        <n-anchor-link title="top" href="#navstar" />
+        <n-anchor-link title="设计" href="#navdesign" />
+        <n-anchor-link title="开发" href="#nav-dev" />
+        <n-anchor-link title="产品" href="#nav-product" />
+      </n-anchor-link>
       <n-anchor-link title="Props" href="#Props" />
-      <a href="##nav-top">to top</a>
     </n-anchor>
     </n-layout-sider>
     <n-layout-content content-style="width: 100%">
       <div class="section-title">开始</div>
-      <Start id="nav-start"/>
+      <!-- <Start id="nav-start"/> -->
+      <router-view/>
     </n-layout-content>
   </n-layout>
 </template>
 
 <script>
 import { defineComponent, h, ref } from 'vue'
-import Start from './web-nav/index.vue'
+// import Start from './web-nav/index.vue'
 import { NIcon } from 'naive-ui'
 import { RouterLink } from 'vue-router'
 import {
@@ -57,13 +59,69 @@ import {
   Document24Regular as DocIconOutline,
   CheckmarkCircle24Regular as CheckmarkCircleIconOutline,
   Folder24Regular as FolderIconOutline,
-  AlignTop24Regular as KanbanIconOutline,
 } from '@vicons/fluent'
 
 function renderIcon (icon) {
   return () => h(NIcon, null, { default: () => h(icon) })
 }
 const menuOptions = [
+  {
+    label: () =>
+      h(
+        RouterLink,
+        {
+          to: {
+            path: '/start'
+          }
+        },
+        { default: () => '开始' }
+      ),
+    key: 'start',
+    icon: renderIcon(StarIconOutline)
+  },
+  {
+    label: () =>
+      h(
+        RouterLink,
+        {
+          to: {
+            path: '/nav'
+          }
+        },
+        { default: () => '网址导航' }
+      ),
+    key: 'nav',
+    icon: renderIcon(StarIconOutline)
+  },
+  {
+    label: '设计',
+    key: 'dance-dance-dance',
+    icon: renderIcon(StarIconOutline),
+    children: [
+      {
+        label: '必看',
+        key: 'beverage',
+        href: '#navstar'
+      },
+      {
+        label: '灵感',
+        key: 'food',
+        href: 'https://www.chiven.net/'
+      },
+      {
+        label: () =>
+          h(
+            'a',
+            {
+              href: '#navdesign',
+              rel: 'noopenner noreferrer'
+            },
+            '且听风吟'
+          ),
+        key: 'hear-the-wind-sing'
+      },
+    ]
+  },
   {
     label: () =>
       h(
@@ -84,49 +142,27 @@ const menuOptions = [
           RouterLink,
           {
             to: {
-              path: '/404'
+              path: '/nav#navstar'
             }
           },
-          { default: () => '待办' }
+          { default: () => '星标' }
         ),
         key: 'project-todo',
         icon: renderIcon(CheckmarkCircleIconOutline)
       },
       {
-        label: '看板',
-        key: 'project-kanban',
-        icon: renderIcon(KanbanIconOutline)
-      }
-    ]
-  },
-  {
-    label: () =>
-      h(
-        RouterLink,
-        {
-          to: {
-            path: '/nav'
-          }
-        },
-        { default: () => '开始' }
-      ),
-    key: 'start',
-    icon: renderIcon(StarIconOutline)
-  },
-  {
-    label: '设计',
-    key: 'dance-dance-dance',
-    icon: renderIcon(StarIconOutline),
-    children: [
-      {
-        label: '必看',
-        key: 'beverage',
-        href: '#top'
-      },
-      {
-        label: '灵感',
-        key: 'food',
-        href: 'https://www.chiven.net/'
+        label: () =>
+        h(
+          RouterLink,
+          {
+            to: {
+              path: '/nav#navdesign'
+            }
+          },
+          { default: () => '设计' }
+        ),
+        key: 'project-design',
+        icon: renderIcon(CheckmarkCircleIconOutline)
       }
     ]
   },
@@ -208,7 +244,7 @@ const menuOptions = [
 export default defineComponent({
   name: 'Home',
   components: {
-    Start,
+    // Start,
   },
   setup () {
     

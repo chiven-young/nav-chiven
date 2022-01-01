@@ -26,7 +26,8 @@ import {
     NCalendar,
     NResult,
     NDrawer,
-    NAnchorLink
+    NAnchorLink,
+    NBackTop
 } from 'naive-ui'
 
 import router from './router'
@@ -54,7 +55,8 @@ const naive = create({
         NTabs,
         NTabPane,
         NCalendar,
-        NResult
+        NResult,
+        NBackTop
     ]
 })
 

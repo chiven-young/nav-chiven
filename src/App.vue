@@ -1,6 +1,7 @@
 <template>
 <n-config-provider :theme="theme" class="app-body">
   <n-layout-header :inverted="inverted" bordered>
+    <img src="../src/assets/logo.png">
     <n-button quaternary round>
       <router-link to="/">Home</router-link>
     </n-button>

@@ -20,10 +20,7 @@
         :expand-icon="expandIcon"
         accordion
       />
-      <router-link to="/start">开始</router-link>
-      <router-link to="/nav">网址导航</router-link>
       <n-anchor
-        affix
         listen-to=".document-scroll-container"
         :trigger-top="24"
         :top="88"
@@ -40,7 +37,7 @@
     </n-anchor>
     </n-layout-sider>
     <n-layout-content content-style="width: 100%">
-      <div class="section-title">开始</div>
+      <div class="board-title">开始</div>
       <!-- <Start id="nav-start"/> -->
       <router-view/>
     </n-layout-content>
@@ -256,8 +253,8 @@ export default defineComponent({
 })
 </script>
 <style scoped>
-.section-title {
-  font-size: 30px;
+.board-title {
+  font-size: 36px;
   padding: 16px 20px 8px 20px;
 }
 </style>

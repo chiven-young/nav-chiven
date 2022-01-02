@@ -186,6 +186,10 @@ li {
 a {
   color: #42b983;
 }
+.section-title {
+  font-size: 26px;
+  padding: 16px 20px 8px 20px;
+}
 .project-card {
   height: 140px;
   background-repeat: no-repeat;

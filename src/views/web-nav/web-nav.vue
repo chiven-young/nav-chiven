@@ -4,18 +4,7 @@
     <a id="navstar"></a>
     <img src="../../assets/logo.png">
     <n-grid cols="1 s:3 m:4 l:5 xl:6 2xl:7" responsive="screen">
-      <n-grid-item v-for="item in items" v-bind:key="item.index" class="card-content">
-        <img :src="item.imgUrl" class="card-img"/>
-        <div class="card-info">
-          <div class="card-title">{{item.title}}</div>
-          <div class="card-desc">{{item.desc}}</div>
-        </div>
-      </n-grid-item>
-    </n-grid>
-    <div class="section-title">设计</div>
-    <a id="navdesign"></a>
-    <n-grid cols="1 s:3 m:4 l:5 xl:6 2xl:7" responsive="screen">
-      <n-grid-item v-for="item in navData.webNavList" v-bind:key="item.id" class="card-content">
+      <n-grid-item v-for="item in navData.webNavList" v-bind:key="item.index" class="card-content">
         <img :src="item.imgUrl" class="card-img"/>
         <div class="card-info">
           <div class="card-title">{{item.title}}</div>
@@ -37,20 +26,23 @@ const navData = reactive({
 });
 const getNavListData = async ()=>{
     axios
-    .get('/src/assets/json/navlist.json')
-    .then(response => (this.navData.webNavList = response.data.navList))
+    .get('../src/assets/json/navlist.json')
+    .then(response => (navData.webNavList = response.data.navList))
     .catch(function (error) { // 请求失败处理
         console.log(error);
     });
+    console.log('获取数据get=============');
+    console.log('打印数据=====',this.navDava.webNavList);
 };
-const getWebNav = async ()=>{
-    let result = await axios.post('/src/assets/json/navlist.json', {})
-    let list = result;
-    navData.webNavAll = list;
-};
+// const getWebNav = async ()=>{
+//     let result = await axios.post('/src/assets/json/navlist.json', {})
+//     let list = result;
+//     navData.webNavAll = list;
+//     console.log('获取数据post=============')
+// };
 onMounted(()=>{
     getNavListData();
-    getWebNav();
+    // getWebNav();
     console.log('mounted=============')
 });
 </script>

@@ -15,26 +15,8 @@
         :collapsed-width="64"
         :collapsed-icon-size="22"
         :options="menuOptions"
-        :render-label="renderMenuLabel"
-        :render-icon="renderMenuIcon"
-        :expand-icon="expandIcon"
         accordion
       />
-      <n-anchor
-        listen-to=".document-scroll-container"
-        :trigger-top="24"
-        :top="88"
-        style="z-index: 1;"
-        :bound="24"
-      >
-      <n-anchor-link title="网址导航" href="#navstar">
-        <n-anchor-link title="top" href="#navstar" />
-        <n-anchor-link title="设计" href="#navdesign" />
-        <n-anchor-link title="开发" href="#nav-dev" />
-        <n-anchor-link title="产品" href="#nav-product" />
-      </n-anchor-link>
-      <n-anchor-link title="Props" href="#Props" />
-    </n-anchor>
     </n-layout-sider>
     <n-layout-content content-style="width: 100%">
       <div class="board-title">开始</div>

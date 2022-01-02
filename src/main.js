@@ -26,6 +26,7 @@ import {
     NCalendar,
     NResult,
     NDrawer,
+    NDrawerContent,
     NAnchorLink,
     NBackTop
 } from 'naive-ui'
@@ -48,6 +49,7 @@ const naive = create({
         NCollapse,
         NCollapseItem,
         NDrawer,
+        NDrawerContent,
         NGrid,
         NGridItem,
         NInput,

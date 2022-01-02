@@ -10,7 +10,7 @@
   "dependencies": {
     "@vicons/fluent": "^0.11.0",
     "axios": "^0.24.0",
-    "core-js": "^3.6.5",
+    "core-js": "^3.20.1",
     "naive-ui": "^2.23.1",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0"

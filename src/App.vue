@@ -1,6 +1,6 @@
 <template>
 <n-config-provider :theme="theme" class="app-body">
-  <n-layout-header :inverted="inverted" bordered>
+  <n-layout-header bordered>
     <div class="header-left">
       <div class="logo">
         <img src="../src/assets/logo.png" class="logo-img">

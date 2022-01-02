@@ -15,7 +15,7 @@
     <div class="section-title">设计</div>
     <a id="navdesign"></a>
     <n-grid cols="1 s:3 m:4 l:5 xl:6 2xl:7" responsive="screen">
-      <n-grid-item v-for="item in webNavList" v-bind:key="item.id" class="card-content">
+      <n-grid-item v-for="item in navData.webNavList" v-bind:key="item.id" class="card-content">
         <img :src="item.imgUrl" class="card-img"/>
         <div class="card-info">
           <div class="card-title">{{item.title}}</div>
@@ -27,34 +27,34 @@
   <n-back-top :right="100" />
 </template>
 
-<script>
+<script setup>
+import { reactive,onMounted} from 'vue'
 import axios from 'axios'
 
-export default {
-  name: 'NavList',
-  data () {
-    return {
-      webNavList: []
-    }
-  },
-  methods: {
-    getNavListData: function() {
-        axios
-        .get('../../assets/json/navlist.json')
-        .then(response => (this.webNavList = response.data.navList))
-        .catch(function (error) { // 请求失败处理
-            console.log(error);
-        });
-    },
-  },
-  mounted: function () {
-    this.getNavListData();
-    console.log('mounted 挂载结束状态===============》');
-  },
-}
+const navData = reactive({
+    webNavList: [],
+    webNavAll: [],
+});
+const getNavListData = async ()=>{
+    axios
+    .get('/src/assets/json/navlist.json')
+    .then(response => (this.navData.webNavList = response.data.navList))
+    .catch(function (error) { // 请求失败处理
+        console.log(error);
+    });
+};
+const getWebNav = async ()=>{
+    let result = await axios.post('/src/assets/json/navlist.json', {})
+    let list = result;
+    navData.webNavAll = list;
+};
+onMounted(()=>{
+    getNavListData();
+    getWebNav();
+    console.log('mounted=============')
+});
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
   margin: 40px 0 0;

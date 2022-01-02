@@ -2944,7 +2944,7 @@ packages:
     engines: {node: '>=8.0.0'}
     dependencies:
       eventemitter3: registry.nlark.com/eventemitter3/4.0.7
-      follow-redirects: registry.npmmirror.com/follow-redirects/1.14.6_debug@4.3.3
+      follow-redirects: registry.npmmirror.com/follow-redirects/1.14.6
       requires-port: registry.nlark.com/requires-port/1.0.0
     transitivePeerDependencies:
       - debug
@@ -8652,7 +8652,7 @@ packages:
     name: axios
     version: 0.24.0
     dependencies:
-      follow-redirects: registry.npmmirror.com/follow-redirects/1.14.6_debug@4.3.3
+      follow-redirects: registry.npmmirror.com/follow-redirects/1.14.6
     transitivePeerDependencies:
       - debug
     dev: false
@@ -9714,9 +9714,8 @@ packages:
     version: 2.0.2
     dev: true
 
-  registry.npmmirror.com/follow-redirects/1.14.6_debug@4.3.3:
+  registry.npmmirror.com/follow-redirects/1.14.6:
     resolution: {integrity: sha512-fhUl5EwSJbbl8AR+uYL2KQDxLkdSjZGR36xy46AO7cOMTrCMON6Sa28FmAnC2tRTDbd/Uuzz3aJBv7EBN7JH8A==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/follow-redirects/download/follow-redirects-1.14.6.tgz}
-    id: registry.npmmirror.com/follow-redirects/1.14.6
     name: follow-redirects
     version: 1.14.6
     engines: {node: '>=4.0'}
@@ -9725,8 +9724,6 @@ packages:
     peerDependenciesMeta:
       debug:
         optional: true
-    dependencies:
-      debug: registry.npmmirror.com/debug/4.3.3
 
   registry.npmmirror.com/fs-write-stream-atomic/1.0.10:
     resolution: {integrity: sha1-tH31NJPvkR33VzHnCp3tAYnbQMk=, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/fs-write-stream-atomic/download/fs-write-stream-atomic-1.0.10.tgz}
